@@ -29,6 +29,21 @@ def order_bread():
         else:
             print("다시")
 
+# 붕어빵 admin 기능
+def admin_mode():
+    while True:
+        bread_type = input("추가 주문하시겠습니까?(팥붕어빵, 슈크림붕어빵, 초코붕어빵) 없으시면 뒤로가기를 눌러주세요.")
+        if bread_type == "뒤로가기":
+            break
+        if bread_type in stock:
+            bread_count = int(input("창고에 채워넣을 개수를 입력하세요: "))
+            stock[bread_type] += bread_count
+            print(f'{bread_type}의 재고가 {bread_count}개 추가되어, 현재 {stock[bread_type]}개 있습니다.')
+        else:
+            print("다시")
+
+
+# 붕어빵 메인 화면
 while True:
     mode = input("원하는 모드를 선택하세요.(주문, 관리자, 종료): ")
     if mode == "종료":
